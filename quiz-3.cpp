@@ -4,6 +4,7 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
   /* Kamus data */
+  // 4 baris, 5 kolom
   int M[5][6] = {
       {0, 0, 0, 0, 0, 0},
       {0, 9, 40, 3, 4, 1},
