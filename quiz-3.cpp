@@ -1,9 +1,9 @@
 #include <iostream>
 using namespace std;
 
-int main(int argc, char const *argv[])
+int main()
 {
-  /* Kamus data */
+  /* KAMUS DATA */
   // 4 baris, 5 kolom
   int M[5][6] = {
       {0, 0, 0, 0, 0, 0},
@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 
   int X[11] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 
-  /* Algoritma */
+  /* ALGORITMA */
   n = 1;
   b = 1;
   while (b <= 4) // baris
@@ -66,7 +66,7 @@ int main(int argc, char const *argv[])
     b = b + 1;
   }
 
-  // output
+  // output X
   cout << "|";
   int idx = 1;
   while (idx <= 10)
