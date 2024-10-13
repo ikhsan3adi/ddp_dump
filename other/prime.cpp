@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+/* BILANGAN PRIMA */
+
 int main()
 {
   int n, i = 2;

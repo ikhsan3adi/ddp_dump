@@ -25,6 +25,3 @@ int main()
 
   return 0;
 }
-// pr if then else
-// jk < 20j, perjam = 8000
-// jk >= 20j && < 40j, perjam = 10000
