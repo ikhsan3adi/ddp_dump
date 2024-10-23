@@ -20,7 +20,7 @@ int main()
       j++;
     }
     i++;
-    }
+  }
 
   return 0;
 }
