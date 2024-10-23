@@ -49,12 +49,9 @@ void a(int X[6][6])
   while (b <= 5)
   {
     k = 1;
-    while (k <= 5)
+    while (k <= b)
     {
-      if (k <= b)
-      {
-        X[b][k] = k;
-      }
+      X[b][k] = k;
 
       k = k + 1;
     }
@@ -74,12 +71,9 @@ void b(int X[6][6])
   while (b <= 5)
   {
     k = 1;
-    while (k <= 5)
+    while (k <= b)
     {
-      if (k <= b)
-      {
-        X[b][k] = b;
-      }
+      X[b][k] = b;
 
       k = k + 1;
     }
