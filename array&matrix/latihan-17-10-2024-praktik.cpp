@@ -19,7 +19,7 @@ void outputArray(int X[6][6])
       }
       else
       {
-        cout << "-" << " | ";
+        cout << "- | ";
       }
 
       k = k + 1;
