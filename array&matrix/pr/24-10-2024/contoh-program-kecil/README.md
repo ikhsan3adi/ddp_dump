@@ -3,6 +3,12 @@
 Pada semua program, tulis `#include <stdio.h>` sebelum `int main()` atau `void main()`
 Semua program di-save dengan nama file berekstensi .cpp
 
+1. [Dasar input/output, tipe data dan operator](./input-output-tipe-data-operator/)
+2. [Konstanta dan kalkulasi sederhana](./konstanta-dan-kalkulasi-sederhana/)
+3. [Instruksi kondisional](./instruksi-kondisional/)
+4. [Pengulangan](./pengulangan/)
+5. [Array](./array/)
+
 PERHATIKAN OPERATOR BOOLEAN DIBANDINGKAN OPERATOR BIT JIKA DIPAKAI DALAM
 EKSPRESI KONDISIONAL :  
 
