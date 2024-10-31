@@ -1,6 +1,7 @@
 # CONTOH PROGRAM KECIL dalam BAHASA C untuk Praktikum MK DDP
 
 Urutan:
+
 1. [Dasar input/output, tipe data dan operator](./input-output-tipe-data-operator/)
 2. [Konstanta dan kalkulasi sederhana](./konstanta-dan-kalkulasi-sederhana/)
 3. [Instruksi kondisional](./instruksi-kondisional/)
@@ -11,7 +12,7 @@ Pada semua program, tulis `#include <stdio.h>` sebelum `int main()` atau `void m
 Semua program di-save dengan nama file berekstensi `.c`
 
 PERHATIKAN OPERATOR BOOLEAN DIBANDINGKAN OPERATOR BIT JIKA DIPAKAI DALAM
-EKSPRESI KONDISIONAL :  
+EKSPRESI KONDISIONAL :
 
 ```cpp
 /* KAMUS */  
