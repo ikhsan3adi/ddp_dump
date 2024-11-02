@@ -1,0 +1,20 @@
+PROCEDURE SWAP (X, Y)
+  {
+    X : parameter output bertype integer dengan passing parameter by address;
+    Y : parameter input bertype integer dengan passing parameter by value;
+    Temp : Variable local bertype integer;
+  }
+  
+BEGIN
+  Temp <- X
+  X <- Y
+  Y <- Temp
+ENDPROCEDURE Swap
+
+MODUL Utama
+  {A, B variabel lokal, bertype integer}
+BEGIN
+  A <- 75
+  B <- -100
+  SWAP(A, B)
+ENDMODUL Utama

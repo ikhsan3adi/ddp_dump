@@ -1,0 +1,26 @@
+PROCEDURE DecToBiner(D, B)
+  {
+    Procedure untuk konversi Bil Desimal ke bilangan biner
+    Asumsi : 0 £ nilai desimal £ 255
+    D : parameter input bertype integer;
+    B : parameter output bertype array integer dengan maksimal elemen = 8
+    i : variabel lokal bertype integer
+  }
+
+BEGIN
+  FOR (i <- 1 to 8) DO B[i] <- 0 ENDFOR
+  IF D > 0 THEN
+    i <- 8
+    WHILE (i > 0 AND D > 0) DO
+      B[i] <- D MOD 2
+      D <- D div 2
+      i <- i - 1
+    ENDWHILE
+  ENDIF
+ENDPROCEDURE DecToBiner
+
+MODUL Utama
+  {A variabel lokal, Array bertype integer dengan maks elemen 8}
+BEGIN
+  DecToBiner (206, A)
+ENDMODUL Utama

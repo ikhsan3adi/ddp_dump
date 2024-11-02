@@ -1,0 +1,37 @@
+Diketahui
+  bil, pengali, hasil adalah variabel global bertipe integer
+
+Algoritma-XXX
+
+PROCEDURE kali(b,p,h)
+  { 
+    b,p parameter input passing by value bertipe integer.
+    h parameter output passing by address/reference bertipe integer.
+    bp, n variabel lokal bertipe integer. 
+  }
+
+  bp <- p
+  IF (b = 0) OR (p = 0)
+    THEN h <- 0
+  ELSE
+    IF p < 0 
+      THEN bp <- p - p - p
+    ENDIF
+    n <- 1;
+    WHILE n <= bp DO
+      h <- h + b;
+      n <- n + 1;
+    ENDWHILE
+  ENDIF
+  IF p < 0
+    THEN h <- h - h - h
+  ENDIF
+ENDPROCEDURE kali
+
+MODUL Utama {pemanggilan procedure}
+  hasil <- 0
+  Read(bil)
+  Read(pengali)
+  Kali(bil,pengali,hasil)
+  Write(hasil)
+ENDMODUL utama.
