@@ -40,8 +40,8 @@ void bagi(int b, int p, int *h, int *s)
 
   if (!(p < 0 && b < 0) && (p < 0 || b < 0))
   {
-    negasi(s);
     negasi(h);
+    negasi(s);
   }
 }
 
