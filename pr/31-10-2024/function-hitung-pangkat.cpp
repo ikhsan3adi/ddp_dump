@@ -3,18 +3,17 @@ using namespace std;
 
 int hitung_pangkat(int bil, int p)
 {
-  int i, n;
+  int i, hsl;
 
-  // proses
-  n = bil;
+  hsl = 1;
   i = 1;
-  while (i < p)
+  while (i <= p)
   {
-    n = n * bil;
+    hsl = hsl * bil;
     i = i + 1;
   }
 
-  return n;
+  return hsl;
 }
 
 int main()
