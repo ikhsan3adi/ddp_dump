@@ -1,7 +1,7 @@
 PROCEDURE DecToBiner(D, B)
   {
     Procedure untuk konversi Bil Desimal ke bilangan biner
-    Asumsi : 0 £ nilai desimal £ 255
+    Asumsi : 0 <= nilai desimal <= 255
     D : parameter input bertype integer;
     B : parameter output bertype array integer dengan maksimal elemen = 8
     i : variabel lokal bertype integer

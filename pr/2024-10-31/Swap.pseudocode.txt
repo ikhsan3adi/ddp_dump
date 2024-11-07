@@ -9,7 +9,7 @@ BEGIN
   Temp <- X
   X <- Y
   Y <- Temp
-ENDPROCEDURE Swap
+ENDPROCEDURE SWAP
 
 MODUL Utama
   {A, B variabel lokal, bertype integer}

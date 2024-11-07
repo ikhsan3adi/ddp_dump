@@ -25,7 +25,7 @@ void main()
 {
   int A[8];
 
-  DecToBiner(255, A); // array = reference/address of first element
+  DecToBiner(206, A); // array = reference/address of first element
 
   for (int i = 0; i < 8; i++)
   {
