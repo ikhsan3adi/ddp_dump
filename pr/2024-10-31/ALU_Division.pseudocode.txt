@@ -15,7 +15,7 @@ PROCEDURE bagi(b,p,h,s)
   IF (b = 0) OR (p = 0)
     THEN h <- 0
   ELSE
-    IF p < 0
+    IF b < 0
       THEN bb <- -(b)
     ENDIF
     IF p < 0
@@ -31,7 +31,6 @@ PROCEDURE bagi(b,p,h,s)
 
   IF NOT (p < 0 AND b < 0) AND (p < 0 OR b < 0) THEN
     h <- -(h)
-    s <- -(s)
   ENDIF
 ENDPROCEDURE kali
 
