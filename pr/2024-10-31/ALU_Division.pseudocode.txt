@@ -7,31 +7,31 @@ PROCEDURE bagi(b,p,h,s)
   { 
     b,p parameter input passing by value bertipe integer.
     h,s parameter output passing by address/reference bertipe integer.
-    b_1, p_1 variabel lokal bertipe integer. 
+    bb, bp variabel lokal bertipe integer. 
   }
 
-  b_1 <- b
-  p_1 <- p
+  bb <- b
+  bp <- p
   IF (b = 0) OR (p = 0)
     THEN h <- 0
   ELSE
     IF p < 0
-      THEN b_1 <- b - b - b
+      THEN bb <- -(b)
     ENDIF
     IF p < 0
-      THEN p_1 <- p - p - p
+      THEN bp <- -(p)
     ENDIF
     
-    WHILE b_1 >= p_1 DO
-      b_1 <- b_1 - p_1
+    WHILE bb >= bp DO
+      bb <- bb - bp
       h <- h + 1
     ENDWHILE
-    s <- b_1
+    s <- bb
   ENDIF
 
   IF NOT (p < 0 AND b < 0) AND (p < 0 OR b < 0) THEN
-    h <- h - h - h
-    s <- s - s - s
+    h <- -(h)
+    s <- -(s)
   ENDIF
 ENDPROCEDURE kali
 

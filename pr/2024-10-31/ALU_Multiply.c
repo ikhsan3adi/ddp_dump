@@ -14,7 +14,7 @@ void kali(int b, int p, int *h)
     if (p < 0) //* Kondisi-1
     {
       // negatif => positif
-      bp = p - p - p; //* Operasi-2
+      bp = -(p); //* Operasi-2
     }
 
     n = 1;
@@ -28,7 +28,7 @@ void kali(int b, int p, int *h)
   if (p < 0)
   {
     // positif => negatif
-    *h = *h - *h - *h; //* Ekspresi-1
+    *h = -(*h); //* Ekspresi-1
   }
 }
 

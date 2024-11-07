@@ -12,19 +12,19 @@ PROCEDURE kali(b,p,h)
 
   bp <- p
   IF (b = 0) OR (p = 0)
-    THEN h <- 0
+    THEN h <- 0 {operasi-1 (d)}
   ELSE
-    IF p < 0 
-      THEN bp <- p - p - p
+    IF p < 0 {kondisi-1 (a)}
+      THEN bp <- -(p) {operasi-2 (e)}
     ENDIF
-    n <- 1;
-    WHILE n <= bp DO
-      h <- h + b;
-      n <- n + 1;
+    n <- 1
+    WHILE n <= bp DO {kondisi-2 (e)}
+      h <- h + b {operasi-3 (c)}
+      n <- n + 1
     ENDWHILE
   ENDIF
   IF p < 0
-    THEN h <- h - h - h
+    THEN h <- -(h) {ekspresi-1 (c)}
   ENDIF
 ENDPROCEDURE kali
 
@@ -32,6 +32,6 @@ MODUL Utama {pemanggilan procedure}
   hasil <- 0
   Read(bil)
   Read(pengali)
-  Kali(bil,pengali,hasil)
+  kali(bil,pengali,hasil)
   Write(hasil)
 ENDMODUL utama.

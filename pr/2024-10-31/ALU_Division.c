@@ -1,47 +1,38 @@
 #include <stdio.h>
 
-// negatif => positif, positif => negatif
-void negasi(int *b)
-{
-  *b = *b - *b - *b;
-}
-
-// negatif => positif
-void mutlak(int *b)
-{
-  if (*b < 0)
-  {
-    negasi(b);
-  }
-}
-
 void bagi(int b, int p, int *h, int *s)
 {
-  int b_1, p_1;
+  int bb, pp;
 
-  b_1 = b;
-  p_1 = p;
+  bb = b;
+  pp = p;
   if (b == 0 || p == 0)
   {
     *h = 0; //? return;
   }
   else
   {
-    mutlak(&b_1);
-    mutlak(&p_1);
-
-    while (b_1 >= p_1)
+    if (b < 0)
     {
-      b_1 = b_1 - p_1;
+      bb = -(b);
+    }
+    if (p < 0)
+    {
+      pp = -(p);
+    }
+
+    while (bb >= pp)
+    {
+      bb = bb - pp;
       *h = *h + 1;
     }
-    *s = b_1;
+    *s = bb;
   }
 
   if (!(p < 0 && b < 0) && (p < 0 || b < 0))
   {
-    negasi(h);
-    negasi(s);
+    *h = -(*h);
+    *s = -(*s);
   }
 }
 
