@@ -28,11 +28,14 @@ int main()
 {
   int j, g;
 
+  // input
   cout << "Jam kerja = ";
   cin >> j;
 
+  // proses
   g = hitungGaji(j);
 
+  // output
   cout << "Gaji = " << g;
 
   return 0;
