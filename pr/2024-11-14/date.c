@@ -74,7 +74,7 @@ keyboard */
   }
 }
 
-bool isValid(date D)
+boolean isValid(date D)
 /* Memeriksa apakah suatu tanggal valid, yaitu dengan
 memperhatikan batas akhir per bulan */
 {
@@ -92,7 +92,7 @@ void PrintObj(date D)
 }
 
 /****** Operator Relasional ******/
-bool isKabisat(date D)
+boolean isKabisat(date D)
 /* Memeriksa apakah suatu tanggal adalah kabisat; Dipakai untuk
 bulan == 2 saja
 Harusnya kabisat adalah thn yang habis dibagi 4 dan 100,
@@ -179,7 +179,7 @@ void SelisihDate(date D1, date D2)
  Asumsi : 1 tahun = 365 hari */
 {
   int d = 0, a = 0, i;
-  bool besar = false;
+  boolean besar = false;
   printf("Selisih antara ");
   PrintObj(D1);
   printf(" dan ");

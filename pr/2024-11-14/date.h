@@ -1,7 +1,6 @@
 #ifndef date_h
 #define date_h
-// #include "Boolean.h"
-#include <stdbool.h>
+#include "boolean.h"
 
 /***************************/
 /* Type data */
@@ -49,7 +48,7 @@ void BacaDate(date *D);
 
 /* Membentuk DATE dari iTgl, iBln dan iThn yang dibaca dari
 keyboard */
-bool isValid(date D);
+boolean isValid(date D);
 
 /* Memeriksa apakah suatu tanggal valid, yaitu dengan
 memperhatikan batas akhir per bulan */
@@ -57,7 +56,7 @@ void PrintObj(date D);
 
 /* Print nilai D dengan format dd/mm/yyyy */
 /****** Operator Relasional ******/
-bool isKabisat(date D);
+boolean isKabisat(date D);
 
 /* Memeriksa apakah suatu tanggal adalah kabisat; Dipakai untuk
 bulan == 2 saja */
