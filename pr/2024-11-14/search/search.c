@@ -46,11 +46,11 @@ int binarySearch(int *a, int n, int k)
   {
     return akhir;
   }
-  else if (k < a[awal]) // diatas range
+  else if (k < a[awal]) // dibawah range
   {
     return n;
   }
-  else if (k > a[akhir]) // dibawah range
+  else if (k > a[akhir]) // diatas range
   {
     return n;
   }
@@ -58,7 +58,7 @@ int binarySearch(int *a, int n, int k)
   {
     ketemu = false;
     tengah = (awal + akhir) / 2;
-    while (awal < akhir && !ketemu)
+    while (awal <= akhir && !ketemu)
     {
       tengah = (awal + akhir) / 2;
       if (k < a[tengah])
