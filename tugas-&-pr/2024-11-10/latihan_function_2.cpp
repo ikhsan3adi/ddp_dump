@@ -3,30 +3,27 @@
 #include <iostream>
 using namespace std;
 
-int hitungGaji(int jamKerja)
+long long hitungGaji(int jamKerja)
 {
-  int i, gaji;
-
+  long long gaji;
   gaji = 0;
-  i = 1;
-  while (i <= jamKerja)
+
+  if (jamKerja <= 40)
   {
-    if (i <= 40)
-    {
-      gaji = gaji + 30000;
-    }
-    else
-    {
-      gaji = gaji + 35000;
-    }
-    i = i + 1;
+    gaji = jamKerja * 30000;
   }
+  else
+  {
+    gaji = 40 * 30000 + (jamKerja - 40) * 35000;
+  }
+
   return gaji;
 }
 
 int main()
 {
-  int j, g;
+  int j;
+  long long g;
 
   // input
   cout << "Jam kerja = ";
