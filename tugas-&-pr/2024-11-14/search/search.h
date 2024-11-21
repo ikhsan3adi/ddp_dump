@@ -1,3 +1,7 @@
+/* Nama Program : search.h
+ Deskripsi : Deklarasi unit untuk keperluan search
+ Pembuat : Ikhsan Satriadi */
+
 #ifndef search_h
 #define search_h
 

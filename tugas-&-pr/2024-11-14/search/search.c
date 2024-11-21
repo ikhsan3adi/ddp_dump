@@ -1,3 +1,7 @@
+/* Nama Program : search.c
+ Deskripsi : Unit untuk keperluan search
+ Pembuat : Ikhsan Satriadi */
+
 #include <stdbool.h>
 #include "search.h"
 
@@ -5,8 +9,7 @@ int linSearch(int *A, int n, int k)
 {
   /* Kamus data */
 
-  /* Pengendali loop agar dapat dihentikan saat
-  elemen yang ditemukan telah berhasil diperoleh */
+  /* Pengendali loop agar dapat dihentikan saat elemen yang ditemukan telah berhasil diperoleh */
   bool s;
   int i; // Counter array
 

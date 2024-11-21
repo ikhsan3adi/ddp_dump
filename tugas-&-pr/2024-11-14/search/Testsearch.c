@@ -1,3 +1,7 @@
+/* Nama Program : Testsearch.c
+ Deskripsi : Driver untuk menggunakan unit ADT Search yang ada di search.h dan search.c
+ Pembuat : Ikhsan Satriadi */
+
 #include <stdio.h>
 #include "search.h"
 
