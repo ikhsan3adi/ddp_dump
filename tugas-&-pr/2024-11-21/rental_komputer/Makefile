@@ -21,4 +21,4 @@ search.o: search.c search.h
 	$(CC) $(CFLAGS) -c search.c -o search.o
 
 clean:
-	rm -f $(OBJ) $(EXEC)
+	rm -f $(OBJ)

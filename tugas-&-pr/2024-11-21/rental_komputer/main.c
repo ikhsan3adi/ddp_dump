@@ -6,7 +6,9 @@
 #include <stdio.h>
 #include "rental.h"
 
-void main()
+int main()
 {
   printf("Hello World!");
+
+  return 0;
 }
