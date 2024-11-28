@@ -127,7 +127,7 @@ void muatDataPengguna(char *namaFile, Pengguna daftarPengguna[MAX_PENGGUNA], int
   fclose(file); // Tutup file
 }
 
-// Prosedur untuk mencari pengguna dengan pemakaian terlama
+// Fungsi untuk mencari pengguna dengan pemakaian terlama
 // daftarPengguna: parameter array input passing by reference
 // jumlahPengguna: parameter input passing by value
 // Mengembalikan pengguna dengan pemakaian terlama
@@ -151,7 +151,7 @@ Pengguna cariPenggunaTerlama(Pengguna daftarPengguna[MAX_PENGGUNA], int jumlahPe
   return p;
 }
 
-// Prosedur untuk mencari pengguna dengan pemakaian tersingkat
+// Fungsi untuk mencari pengguna dengan pemakaian tersingkat
 // daftarPengguna: parameter array input passing by reference
 // jumlahPengguna: parameter input passing by value
 // Mengembalikan pengguna dengan pemakaian tersingkat
