@@ -185,6 +185,7 @@ void tampilkanMenu()
   printf("3. Cari Pengguna Terlama\n");
   printf("4. Cari Pengguna Tersingkat\n");
   printf("5. Keluar\n");
+  printf("Pilih menu (1-4): ");
 }
 
 int main()
@@ -195,7 +196,6 @@ int main()
   do
   {
     tampilkanMenu();
-    printf("Pilih menu (1-4): ");
     scanf("%d", &pilihan);
 
     if (pilihan == 1)
