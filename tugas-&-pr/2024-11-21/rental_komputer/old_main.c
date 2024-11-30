@@ -1,7 +1,5 @@
 /* Nama Program : main.c
- Deskripsi : Program Rental Komputer untuk mencatat dan mengelola data pemakaian komputer,
-            meliputi pencatatan identitas pengguna, waktu pemakaian, jumlah kertas yang digunakan,
-            dan perhitungan total biaya rental komputer.
+ Deskripsi : Program Rental Komputer
  Pembuat : Ikhsan Satriadi / 241511080
 */
 
@@ -10,19 +8,18 @@
 #include <conio.h>
 #include <string.h>
 #include "rental.h"
-#include "date.h"
 
-#define FILENAME "data.dat" // Nama file data
+#define FILENAME "data.txt" // Nama file data
 
 // Prosedur untuk menulis data pengguna ke file
 // namaFile: parameter input passing by value
 // daftarPengguna: parameter array input passing by reference
 // jumlahPengguna: parameter input passing by value
-void tulisDataPengguna(const char *namaFile, Pengguna daftarPengguna[], int jumlahPengguna)
+void tulisDataPengguna(const char *namaFile, Pengguna daftarPengguna[MAX_PENGGUNA], int jumlahPengguna)
 {
   printf("Menyimpan ke file %s...\n", namaFile);
 
-  FILE *file = fopen(namaFile, "ab+"); // membuka file dalam mode append dan binary
+  FILE *file = fopen(namaFile, "a+"); // membuka file
 
   if (file == NULL)
   {
@@ -33,7 +30,14 @@ void tulisDataPengguna(const char *namaFile, Pengguna daftarPengguna[], int juml
   for (int i = 0; i < jumlahPengguna; i++)
   {
     // Menulis data ke file
-    fwrite(&daftarPengguna[i], sizeof(daftarPengguna[i]), 1, file);
+    fprintf(file, "%s,%.2f,%d,%d,%d/%d/%d\n",
+            daftarPengguna[i].Nama,
+            daftarPengguna[i].JamR,
+            daftarPengguna[i].JumK,
+            daftarPengguna[i].TotB,
+            daftarPengguna[i].Tanggal.Tgl,
+            daftarPengguna[i].Tanggal.Bln,
+            daftarPengguna[i].Tanggal.Thn);
   }
 
   // Tutup file
@@ -46,20 +50,76 @@ void tulisDataPengguna(const char *namaFile, Pengguna daftarPengguna[], int juml
 // namaFile: parameter input passing by value
 // daftarPengguna: parameter array output passing by reference
 // i: counter pengguna parameter output passing by reference
-void muatDataPengguna(char *namaFile, Pengguna daftarPengguna[], int *i)
+void muatDataPengguna(char *namaFile, Pengguna daftarPengguna[MAX_PENGGUNA], int *i)
 {
   printf("Membaca file %s...\n", namaFile);
 
-  FILE *file = fopen(namaFile, "rb"); // membuka file dalam mode read dan binary
+  FILE *file = fopen(namaFile, "r"); // membuka file
 
   if (file == NULL)
   {
     printf("Error: Tidak dapat membuka file %s\n", namaFile);
   }
 
+  // Buffer untuk membaca baris
+  char baris[MAX_PENGGUNA];
+
   // Baca baris per baris
-  while (fread(&daftarPengguna[*i], sizeof(daftarPengguna[*i]), 1, file))
+  while (fgets(baris, sizeof(baris), file) && *i <= MAX_PENGGUNA)
   {
+    // Membersihkan newline \n
+    int len = strlen(baris);
+    if (len > 0 && baris[len - 1] == '\n')
+    {
+      baris[len - 1] = '\0';
+    }
+
+    // Parsing data dengan strtok
+    char *token;
+
+    // Ambil Nama
+    token = strtok(baris, ",");
+    if (token == NULL)
+      continue;
+    strncpy(daftarPengguna[*i].Nama, token, sizeof(daftarPengguna[*i].Nama) - 1);
+
+    // Ambil Lama Pemakaian Komputer
+    token = strtok(NULL, ",");
+    if (token == NULL)
+      continue;
+    daftarPengguna[*i].JamR = atof(token);
+
+    // Ambil Jumlah Kertas
+    token = strtok(NULL, ",");
+    if (token == NULL)
+      continue;
+    daftarPengguna[*i].JumK = atof(token);
+
+    // Ambil Total Biaya
+    token = strtok(NULL, ",");
+    if (token == NULL)
+      continue;
+    daftarPengguna[*i].TotB = atoi(token);
+
+    // Ambil Tanggal
+    token = strtok(NULL, ",");
+    if (token == NULL)
+      continue;
+    token = strtok(token, "/"); // Ambil tanggal
+    int tgl = atoi(token);
+    token = strtok(NULL, "/"); // Ambil bulan
+    int bln = atoi(token);
+    token = strtok(NULL, "/"); // Ambil tahun
+    int thn = atoi(token);
+
+    date tanggal; // Membuat tanggal menggunakan ADT Date
+    CreateDate(&tanggal);
+    SetTgl(tgl, &tanggal);
+    SetBln(bln, &tanggal);
+    SetThn(thn, &tanggal);
+
+    daftarPengguna[*i].Tanggal = tanggal;
+
     // increment counter pengguna
     *i = *i + 1;
   }
@@ -71,12 +131,12 @@ void muatDataPengguna(char *namaFile, Pengguna daftarPengguna[], int *i)
 // daftarPengguna: parameter array input passing by reference
 // jumlahPengguna: parameter input passing by value
 // Mengembalikan pengguna dengan pemakaian terlama
-Pengguna cariPenggunaTerlama(Pengguna daftarPengguna[], int jumlahPengguna)
+Pengguna cariPenggunaTerlama(Pengguna daftarPengguna[MAX_PENGGUNA], int jumlahPengguna)
 {
   // Kamus data
   int i = 0;
-  int terbesar = -1; // variabel sementara untuk menyimpan pemakaian terbesar
-  Pengguna p;        // variabel Pengguna sementara dengan pemakaian terbesar
+  int terbesar = 0; // variabel sementara untuk menyimpan pemakaian terbesar
+  Pengguna p;       // variabel Pengguna sementara dengan pemakaian terbesar
 
   printf("Mencari pengguna dengan pemakaian terlama...\n");
   while (i < jumlahPengguna)
@@ -95,12 +155,12 @@ Pengguna cariPenggunaTerlama(Pengguna daftarPengguna[], int jumlahPengguna)
 // daftarPengguna: parameter array input passing by reference
 // jumlahPengguna: parameter input passing by value
 // Mengembalikan pengguna dengan pemakaian tersingkat
-Pengguna cariPenggunaTersingkat(Pengguna daftarPengguna[], int jumlahPengguna)
+Pengguna cariPenggunaTersingkat(Pengguna daftarPengguna[MAX_PENGGUNA], int jumlahPengguna)
 {
   // Kamus data
   int i = 0;
-  int terkecil = daftarPengguna[0].JamR + 1; // variabel sementara untuk menyimpan pemakaian terkecil
-  Pengguna p;                                // variabel Pengguna sementara dengan pemakaian terkecil
+  int terkecil = daftarPengguna[0].JamR; // variabel sementara untuk menyimpan pemakaian terkecil
+  Pengguna p;                            // variabel Pengguna sementara dengan pemakaian terkecil
 
   printf("Mencari pengguna dengan pemakaian tersingkat...\n");
   while (i < jumlahPengguna)
