@@ -35,7 +35,7 @@ int main()
   int i;
 
   i = 1;
-  while (i <= 2)
+  while (i <= 10)
   {
     cout << "Mahasiswa ke-" << i << "\n";
     cout << "Nama = ";
@@ -55,7 +55,7 @@ int main()
   cout << "===========================================\n";
   cout << "Nama\tUTS\tUAS\tFinal\tIndex\n";
   cout << "===========================================\n";
-  while (i <= 2)
+  while (i <= 10)
   {
     cout << mhs[i].nama << "\t";
     cout << mhs[i].uts << "\t";
